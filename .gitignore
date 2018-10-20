@@ -1,0 +1,37 @@
+#Redis database dump
+dump.rdb
+
+#Vagrant
+.vagrant
+
+#Coverage
+coverage
+# Ignore bundler config.
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+*.log
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/node_modules
+*.swp
+*.swo
+*.orig
+.byebug_history
+
+# OS X hidden folder files
+.DS_Store
+*/.DS_Store
+
+# others
+*~
+\#*
+.#*
+\#*\#
+
+#byebug
+.byebug_history
