@@ -1,25 +1,22 @@
 class Company
   attr_reader :name, :selected_countries 
 
-  def initialize(name='', selected_countries=[])
+  def initialize(name, selected_countries)
     @name = name
     @selected_countries = selected_countries
+    validate
   end
 
   def name=(name)
-    if name.class.eql?(String) && name != ''
-      @name = name
-    else
-      raise "Wrong data type for name or blank"
-    end
+    @name = name
+
+    validate
   end
 
   def selected_countries=(selected_countries)
-    if selected_countries.class.eql?(Array) && selected_countries != []
-      @selected_countries = selected_countries
-    else
-      raise "Wrong data type for selected_countries or empty" 
-    end
+    @selected_countries = selected_countries
+
+    validate
   end
 
   def self.filter_by_user(companies, current_user=nil)
@@ -37,4 +34,10 @@ class Company
       return filtered_companies
     end  
   end
+
+  private
+    def validate
+      raise "Wrong data type for name or blank" unless @name.class.eql?(String) && @name != ''
+      raise "Wrong data type for selected_countries or empty" unless @selected_countries.class.eql?(Array) && @selected_countries != []
+    end
 end
