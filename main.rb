@@ -6,8 +6,7 @@ require_relative "lib/company"
 require_relative "lib/geo_round_robin"
 
 if __FILE__ == $0
-  current_user = User.new
-  current_user.related_country = 'cl'
+  current_user = User.new('cl')
 
   companies = []
   companies << Company.new("Empresa 1", ["cl", "pe", "ar"])
@@ -16,6 +15,7 @@ if __FILE__ == $0
   companies << Company.new("Empresa 4", ["us", "ca", "cl"])
 
   results = Company.filter_by_user(companies, current_user)
+  
   ap "Resultados filtrados segun pais del user:"
   puts "#{results.ai}"
 
